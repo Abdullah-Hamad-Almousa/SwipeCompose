@@ -2,7 +2,9 @@ package com.mysticbyte.swipecompose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -16,7 +18,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -25,7 +26,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.mysticbyte.swipecompose.IdTextApp.idTextApp
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -72,14 +75,16 @@ fun logicCode() {
 
         }
 
-        Box(
+        Row(
             modifier = Modifier
-                .offset(0.dp,-10.dp)
+                .offset(0.dp, -7.dp)
                 .fillMaxWidth(0.5f)
                 .clip(RoundedCornerShape(100))
                 .background(Color.Black.copy(alpha = 0.5f))
                 .padding(6.dp)
-                .align(Alignment.BottomCenter)
+                .align(Alignment.BottomCenter),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
         ){
 
             IconButton(onClick = {
@@ -92,8 +97,7 @@ fun logicCode() {
 
                 }
 
-            },
-                modifier = Modifier.align(Alignment.CenterStart)
+            }
                 ){
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowLeft,
@@ -103,9 +107,10 @@ fun logicCode() {
             }
 
             Text(
-                "Hello",
-                modifier = Modifier
-                    .align(Alignment.Center)
+                text = idTextApp,
+                modifier = Modifier.weight(1f),
+                textAlign = TextAlign.Center,
+                color = Color(0xFF232398)
             )
 
             IconButton(onClick = {
@@ -116,8 +121,7 @@ fun logicCode() {
                     )
 
                 }
-            },
-                modifier = Modifier.align(Alignment.CenterEnd)
+            }
             ){
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowRight,
