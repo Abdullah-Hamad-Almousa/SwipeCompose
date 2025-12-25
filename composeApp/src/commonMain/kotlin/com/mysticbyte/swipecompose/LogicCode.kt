@@ -17,11 +17,13 @@ import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -54,6 +56,7 @@ fun logicCode() {
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color.Black)
     ){
         HorizontalPager(
             pageState,
@@ -74,7 +77,7 @@ fun logicCode() {
                 .offset(0.dp,-10.dp)
                 .fillMaxWidth(0.5f)
                 .clip(RoundedCornerShape(100))
-                .background(MaterialTheme.colorScheme.background)
+                .background(Color.Black.copy(alpha = 0.5f))
                 .padding(6.dp)
                 .align(Alignment.BottomCenter)
         ){
@@ -94,9 +97,16 @@ fun logicCode() {
                 ){
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowLeft,
-                    contentDescription = "Go Back"
+                    contentDescription = "Go Back",
+                    tint = Color.White
                 )
             }
+
+            Text(
+                "Hello",
+                modifier = Modifier
+                    .align(Alignment.Center)
+            )
 
             IconButton(onClick = {
                 scope.launch {
@@ -111,7 +121,8 @@ fun logicCode() {
             ){
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowRight,
-                    contentDescription = "Go Forward"
+                    contentDescription = "Go Forward",
+                    tint = Color.White
                 )
             }
 
